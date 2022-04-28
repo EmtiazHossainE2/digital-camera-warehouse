@@ -23,7 +23,7 @@ const App = () => {
                 <Route path='/dashboard' element={<Dashboard/>}></Route>
                 <Route path='*' element={<NotFound/>}></Route>
             </Routes>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 };
