@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import {  useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import auth from '../../../Firebase/firebase.init';
-import './Login.css'
-import toast from 'react-hot-toast';
-import Loading from '../../../components/Loading/Loading';
 import { Button, Form } from 'react-bootstrap';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../../components/Loading/Loading';
+import auth from '../../../Firebase/firebase.init';
 import SocialAccount from '../SocialAccount/SocialAccount';
+import './Login.css'
 
 
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    //react-firebase-hooks
+    
     const [signInWithEmailAndPassword, user, loading, loginError] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
@@ -52,21 +52,21 @@ const Login = () => {
 
     // navigate 
     if (user) {
-        toast.success(`Welcome Back To Warehouse`, { id: "welcome" });
+        toast.success(`Welcome Back To Warehouse `, { id: "welcome" });
         navigate(from, { replace: true });
     }
 
-    //loading handle
+    //loading
     if(sending){
         return <Loading/>
     }
 
-    //error handle
+    //error 
     if (loginError ) {
-        toast.error(`Sorry ! No user found`, { id: "userError" });
+        toast.error(`Sorry ! No User  found`, { id: "userError" });
     }
 
-    //handle submit  
+    //handle submit btn 
     const handleSubmit = event => {
         event.preventDefault()
 
@@ -86,6 +86,7 @@ const Login = () => {
     // reset password 
     const forgetPassword = async () => {
         const email = emailRef.current.value;
+        console.log(email);
         if (email) {
             await sendPasswordResetEmail(email);
             toast.success(`Rest password send `, { id: "reset" });
@@ -95,23 +96,23 @@ const Login = () => {
         }
     }
 
+    
     return (
-        <div className='account-container '>
-            <div className="  container py-3 ">
-                <div className=" custom-style w-50 mx-auto">
+        <div className='login-container'>
+            <div className=" account-container container py-5 ">
+                <div className=" custom-style ">
                     <h3 className='text-center mb-3 py-4 fst-italic'>Welcome Back</h3>
-                    <SocialAccount/>
-
+                    <SocialAccount />
                     {loginError && <p className="text-danger fs-4"> Could not find user </p>}
 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 " controlId="formBasicEmail">
-                            <Form.Control type="email" ref={emailRef} onBlur={handleEmail}  className='py-2 fs-5' placeholder="Enter email"  />
+                            <Form.Control type="email" ref={emailRef} onBlur={handleEmail}  className='py-2 fs-5 fst-italic' placeholder="Enter email"  />
                         </Form.Group>
                         {email?.error && <p className="text-danger"> {email.error}</p>}
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control onChange={handlePassword}  className='py-2 fs-5' type="password" placeholder="Password"  />
+                            <Form.Control onChange={handlePassword}  className='py-2 fs-5 fst-italic' type="password" placeholder="Password"  />
                         </Form.Group>
                         {/* error handle  */}
                         {password?.error && <p className="text-danger"> {password.error}</p>}

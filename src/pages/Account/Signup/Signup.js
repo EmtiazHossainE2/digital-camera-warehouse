@@ -9,12 +9,12 @@ import SocialAccount from '../SocialAccount/SocialAccount';
 import './Signup.css'
 
 const Signup = () => {
-    const navigate = useNavigate()
     const [yourName, setYourName] = useState({ value: "", error: "" })
     const [email, setEmail] = useState({ value: "", error: "" })
     const [password, setPassword] = useState({ value: "", error: "" })
 
     //navigate
+    const navigate = useNavigate()
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
@@ -24,7 +24,7 @@ const Signup = () => {
         loading,
         createError,] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    //handleProfile 
+    //handle Profile 
     const handleName = event => {
         const nameValue = event.target.value
         setYourName({ value: nameValue, error: "" });
@@ -70,7 +70,7 @@ const Signup = () => {
     // handle Submit
     const handleSubmit = event => {
         event.preventDefault()
-        
+
         if (yourName.value === "") {
             setYourName({ value: "", error: "Name is required" });
         }
@@ -93,25 +93,24 @@ const Signup = () => {
 
 
     return (
-        <div className='account-container '>
-            <div className=" container py-3 ">
-                <div className=" text-light custom-style w-50 mx-auto ">
-                    <h3 className='text-center pb-3 pt-3 fst-italic'>Register Now</h3>
+        <div className='login-container'>
+            <div className="account-container container py-5 ">
+                <div className=" text-light custom-style ">
+                    <h3 className='text-center py-3 fst-italic'>Register now</h3>
                     <SocialAccount/>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 " controlId="formBasicUsername">
-                            <Form.Control type="name" onBlur={handleName} className='py-2' name='name' placeholder="Enter name" />
+                            <Form.Control type="name" onBlur={handleName} className='py-2 fs-5 fst-italic' name='name' placeholder="Enter  name" />
                         </Form.Group>
                         {yourName?.error && <p className="text-danger"> {yourName.error}</p>}
                         <Form.Group className="mb-3 " controlId="formBasicEmail">
-                            <Form.Control type="email" onBlur={handleEmail} className='py-2' name='email' placeholder="Enter email" />
+                            <Form.Control type="email" onBlur={handleEmail} className='py-2 fs-5 fst-italic' name='email' placeholder="Enter  email" />
                         </Form.Group>
                         {email?.error && <p className="text-danger"> {email.error}</p>}
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" onBlur={handlePassword} className='py-2' name='password' placeholder="Password" />
+                            <Form.Control type="password" onBlur={handlePassword} className='py-2 fs-5 fst-italic' name='password' placeholder="Password" />
                         </Form.Group>
-                        {password?.error && <p className="text-danger"> {password.error}</p>}
-                        <Button  variant="primary" type="submit" className='w-100 fs-5'>
+                        <Button variant="primary" type="submit" className='w-100 fs-5'>
                             Register
                         </Button>
                     </Form>

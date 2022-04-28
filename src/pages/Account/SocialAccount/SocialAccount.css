@@ -1,8 +1,8 @@
 .social-icon {
-    background-color: rgb(64, 72, 84);
+    background-color: rgb(74, 82, 94);
     cursor: pointer;
     border-radius: 20px;
 }
 .social-icon:hover {
-    background-color: rgb(63, 75, 93);
+    background-color: rgb(80, 99, 126);
 }
