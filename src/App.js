@@ -11,7 +11,7 @@ import Header from './components/Header/Header';
 
 const App = () => {
     return (
-        <div>
+        <div className='overflow-hidden'>
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}></Route>
