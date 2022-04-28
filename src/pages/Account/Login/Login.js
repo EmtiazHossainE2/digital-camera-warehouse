@@ -5,6 +5,8 @@ import auth from '../../../Firebase/firebase.init';
 import './Login.css'
 import toast from 'react-hot-toast';
 import Loading from '../../../components/Loading/Loading';
+import { Button, Form } from 'react-bootstrap';
+import SocialAccount from '../SocialAccount/SocialAccount';
 
 
 const Login = () => {
@@ -123,7 +125,7 @@ const Login = () => {
                         <div>{loading && <Loading />}</div>
                     </div>
                     <p className='toggle-page py-2 '>
-                        New to our Foundation ?{" "}
+                        New to Camera House ?{" "}
                         <span onClick={() => navigate("/signup")}>Create New Account</span>
                     </p>
                     <SocialAccount />
