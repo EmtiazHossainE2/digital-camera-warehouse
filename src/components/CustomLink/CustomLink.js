@@ -9,7 +9,7 @@ const CustomLink = ({ children, to, ...props }) => {
         <div>
             <Link
                 style={
-                    { color: match ? "black" : "white" }
+                    { color: match ? "orange" : "white", borderBottom: match ? "4px solid white" : "none"  }
                 }
                 to={to}
                 {...props}
@@ -22,4 +22,4 @@ const CustomLink = ({ children, to, ...props }) => {
 
 export default CustomLink;
 
-//borderBottom: match ? "4px solid orange" : "none" 
+//
