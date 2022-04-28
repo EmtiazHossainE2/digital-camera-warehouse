@@ -1,0 +1,12 @@
+
+.header-container{
+    padding: 10px 0;
+    opacity: 0.7;
+}
+.nav-style a {
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 2px;
+    font-size: 18px;
+    color: rgb(241, 232, 232) ;
+}
