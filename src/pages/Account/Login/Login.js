@@ -99,7 +99,7 @@ const Login = () => {
         <div className='account-container '>
             <div className="  container py-3 ">
                 <div className=" custom-style w-50 mx-auto">
-                    <h3 className='text-center mb-3 py-4'>Welcome Back</h3>
+                    <h3 className='text-center mb-3 py-4 fst-italic'>Welcome Back</h3>
                     <SocialAccount/>
 
                     {loginError && <p className="text-danger fs-4"> Could not find user </p>}

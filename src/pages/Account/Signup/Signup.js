@@ -96,8 +96,7 @@ const Signup = () => {
         <div className='account-container '>
             <div className=" container py-3 ">
                 <div className=" text-light custom-style w-50 mx-auto ">
-                    <h3 className='text-center pb-3'>To Stay With us</h3>
-                    <h5 className='text-center pb-3'>Register Now</h5>
+                    <h3 className='text-center pb-3 pt-3 fst-italic'>Register Now</h3>
                     <SocialAccount/>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 " controlId="formBasicUsername">
