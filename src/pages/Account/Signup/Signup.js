@@ -6,16 +6,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 import auth from '../../../Firebase/firebase.init';
 import SocialAccount from '../SocialAccount/SocialAccount';
-import './SignUp.css'
+import './Signup.css'
 
 const Signup = () => {
     const navigate = useNavigate()
-
-    // 
     const [yourName, setYourName] = useState({ value: "", error: "" })
     const [email, setEmail] = useState({ value: "", error: "" })
     const [password, setPassword] = useState({ value: "", error: "" })
-    const [terms, setTerms] = useState(false)
 
     //navigate
     let location = useLocation();
@@ -115,13 +112,7 @@ const Signup = () => {
                             <Form.Control type="password" onBlur={handlePassword} className='py-2' name='password' placeholder="Password" />
                         </Form.Group>
                         {password?.error && <p className="text-danger"> {password.error}</p>}
-                        <div className='d-flex terms-condition   '>
-                            <div className=' mb-3 '>
-                                <input onClick={() => setTerms(!terms)} type="checkbox" name="terms" id="terms" />
-                                <label className={terms ? 'ps-1 text-primary' : 'ps-1 text-danger'} htmlFor="terms" style={{ cursor: 'pointer' }}>Accept Terms and Conditions</label>
-                            </div>
-                        </div>
-                        <Button disabled={!terms} variant="primary" type="submit" className='w-100 fs-5'>
+                        <Button  variant="primary" type="submit" className='w-100 fs-5'>
                             Register
                         </Button>
                     </Form>
