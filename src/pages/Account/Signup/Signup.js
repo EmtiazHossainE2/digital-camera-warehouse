@@ -2,6 +2,7 @@ import React from 'react';
 import {  useNavigate } from 'react-router-dom';
 import './Signup.css'
 import { Button, Form } from 'react-bootstrap';
+import SocialAccount from '../SocialAccount/SocialAccount';
 
 const Signup = () => {
     const navigate = useNavigate()
@@ -32,6 +33,7 @@ const Signup = () => {
                         Already have an account  ?{" "}
                         <span onClick={() => navigate("/login")}>Please Login</span>
                     </p>
+                    <SocialAccount/>
                 </div>
             </div>
         </div>

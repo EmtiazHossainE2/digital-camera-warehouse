@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import SocialAccount from '../SocialAccount/SocialAccount';
 import './Login.css'
 const Login = () => {
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Login = () => {
                         New to Camera House ?{" "}
                         <span onClick={() => navigate("/signup")}>Create New Account</span>
                     </p>
+                    <SocialAccount/>
                 </div>
             </div>
         </div>
