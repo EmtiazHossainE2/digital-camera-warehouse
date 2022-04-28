@@ -8,10 +8,12 @@ import Dashboard from './pages/Account/Dashboard/Dashboard';
 import NotFound from './components/NotFound/NotFound';
 import Footer from './pages/Footer/Footer/Footer';
 import Header from './components/Header/Header';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
     return (
         <div className='overflow-hidden'>
+            <Toaster/>
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}></Route>

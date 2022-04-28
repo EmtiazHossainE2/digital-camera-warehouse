@@ -1,6 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {  useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../Firebase/firebase.init';
 import './Login.css'
+import toast from 'react-hot-toast';
+import Loading from '../../../components/Loading/Loading';
 
 
 const Login = () => {
@@ -9,11 +13,13 @@ const Login = () => {
     const [password, setPassword] = useState({ value: "", error: "" })
     const emailRef = useRef('');
 
-    //private route
+    //navigate
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    
+    //react-firebase-hooks
+    const [signInWithEmailAndPassword, user, loading, loginError] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
     
     //handle email
@@ -42,9 +48,23 @@ const Login = () => {
         }
     }
 
-    
+    // navigate 
+    if (user) {
+        toast.success(`Welcome Back To Warehouse`, { id: "welcome" });
+        navigate(from, { replace: true });
+    }
 
-    //handle submit btn 
+    //loading handle
+    if(sending){
+        return <Loading/>
+    }
+
+    //error handle
+    if (loginError ) {
+        toast.error(`Sorry ! No user found`, { id: "userError" });
+    }
+
+    //handle submit  
     const handleSubmit = event => {
         event.preventDefault()
 
@@ -56,12 +76,23 @@ const Login = () => {
             setPassword({ value: "", error: "Password is required" });
         }
 
-        
+        if (email.value && password.value) {
+            signInWithEmailAndPassword(email.value, password.value)
+        }
     }
 
-    
+    // reset password 
+    const forgetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.success(`Rest password send `, { id: "reset" });
+        }
+        if (resetError) {
+            toast.error(`Email is incorrect `, { id: "errorSend" });
+        }
+    }
 
-    
     return (
         <div className='login-bg-img py-5'>
             <div className=" account-container container py-5 ">
