@@ -1,0 +1,8 @@
+.social-icon {
+    background-color: rgb(75, 114, 173);
+    cursor: pointer;
+    border-radius: 20px;
+}
+.social-icon:hover {
+    background-color: rgb(64, 72, 84);
+}

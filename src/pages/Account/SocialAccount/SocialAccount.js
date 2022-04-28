@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 import auth from '../../../Firebase/firebase.init';
 import google from '../../../images/Google.png'
+import './SocialAccount.css'
+
 const SocialAccount = () => {
     const navigate = useNavigate()
 
@@ -36,11 +38,12 @@ const SocialAccount = () => {
 
     return (
         <div >
-            <div className='social-icon d-flex align-items-center justify-content-center container'>
-                <img onClick={() => signInWithGoogle()} src={google} alt="" />
+            <div onClick={() => signInWithGoogle()} className='social-icon py-2 d-flex  container'>
+                <img  src={google} alt="" />
+                <span className='fs-5 ps-3 text-light'>Log in with google</span>
             </div>
             {errorMessage}
-            <div className='d-flex align-items-center justify-content-center'>
+            <div className='d-flex align-items-center justify-content-center '>
                 <div style={{ height: '2px', width: '40%' }} className='line-left d-block bg-dark'></div>
                 <p className='mt-2 px-3'>Or</p>
                 <div style={{ height: '2px', width: '40%' }} className='line-right d-block bg-dark'></div>
