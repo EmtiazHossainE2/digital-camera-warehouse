@@ -96,10 +96,11 @@ const Login = () => {
     }
 
     return (
-        <div className='login-bg-img py-5'>
-            <div className=" account-container container py-5 ">
-                <div className=" custom-style ">
+        <div className='account-container '>
+            <div className="  container py-3 ">
+                <div className=" custom-style w-50 mx-auto">
                     <h3 className='text-center mb-3 py-4'>Welcome Back</h3>
+                    <SocialAccount/>
 
                     {loginError && <p className="text-danger fs-4"> Could not find user </p>}
 
@@ -128,7 +129,6 @@ const Login = () => {
                         New to Camera House ?{" "}
                         <span onClick={() => navigate("/signup")}>Create New Account</span>
                     </p>
-                    <SocialAccount />
                 </div>
             </div>
         </div>

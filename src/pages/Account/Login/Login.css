@@ -18,8 +18,8 @@
     color: #c2391e;
 }
 .account-container{
-    width: 40%;
     margin: 0 auto;
+    background-color: rgb(243, 240, 240);
 }
 
 /* responsive */

@@ -93,12 +93,12 @@ const Signup = () => {
 
 
     return (
-        <div className='login-bg-img py-5'>
-            <div className="account-container container py-5 ">
-                <div className=" text-light custom-style ">
-                    <h3 className='text-center pb-3'>Hello There,</h3>
-                    <h5 className='text-center pb-3'>Register now to Stay With us</h5>
-
+        <div className='account-container '>
+            <div className=" container py-3 ">
+                <div className=" text-light custom-style w-50 mx-auto ">
+                    <h3 className='text-center pb-3'>To Stay With us</h3>
+                    <h5 className='text-center pb-3'>Register Now</h5>
+                    <SocialAccount/>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 " controlId="formBasicUsername">
                             <Form.Control type="name" onBlur={handleName} className='py-2' name='name' placeholder="Enter name" />
@@ -120,7 +120,6 @@ const Signup = () => {
                         Already have an account  ?{" "}
                         <span onClick={() => navigate("/login")}>Please Login</span>
                     </p>
-                    <SocialAccount/>
                 </div>
             </div>
         </div>
