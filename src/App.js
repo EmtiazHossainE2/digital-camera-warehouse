@@ -11,22 +11,27 @@ import Header from './components/Header/Header';
 import { Toaster } from 'react-hot-toast';
 import InventoryItems from './pages/InventoryItems/InventoryItems';
 import ProductDetail from './pages/Home/ProductDetail/ProductDetail';
+import RequireAuth from './pages/Account/RequireAuth/RequireAuth';
 
 const App = () => {
     return (
         <div className='overflow-hidden'>
-            <Toaster/>
-            <Header/>
+            <Toaster />
+            <Header />
             <Routes>
-                <Route path='/' element={<Home/>}></Route>
-                <Route path='/inventory' element={<InventoryItems/>}></Route>
-                <Route path='/inventory/:inventoryId' element={<ProductDetail></ProductDetail>}></Route>
-                <Route path='/login' element={<Login/>}></Route>
-                <Route path='/signup' element={<Signup/>}></Route>
-                <Route path='/dashboard' element={<Dashboard/>}></Route>
-                <Route path='*' element={<NotFound/>}></Route>
+                <Route path='/' element={<Home />}></Route>
+                <Route path='/inventory' element={<InventoryItems />}></Route>
+                <Route path='/inventory/:inventoryId' element={
+                    <RequireAuth>
+                        <ProductDetail></ProductDetail>
+                    </RequireAuth>
+                }></Route>
+                <Route path='/login' element={<Login />}></Route>
+                <Route path='/signup' element={<Signup />}></Route>
+                <Route path='/dashboard' element={<Dashboard />}></Route>
+                <Route path='*' element={<NotFound />}></Route>
             </Routes>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
