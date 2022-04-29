@@ -1,15 +1,61 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
 import useProductDetail from '../../../hooks/useProductDetail';
 import ads from '../../../images/ads.png'
 import './ProductDetail.css'
 
 
 const ProductDetail = () => {
+    const navigate = useNavigate()
     const { inventoryId } = useParams()
-    const [detail] = useProductDetail(inventoryId)
-    console.log(detail);
+    const [detail, setDetail] = useProductDetail(inventoryId)
     // {description,afPoints , brand,brandId,modes,movieType,quantity,price,sold,supplier,description,ratings}
+    
+    const handleDelivered = () => {
+        const cameraInfo = {
+            name: detail.name,
+            description: detail.description,
+            price: detail.price,
+            img: detail.img,
+            supplier: detail.supplier,
+            afPoints: detail.afPoints,
+            modes: detail.modes,
+            movieType: detail.movieType,
+            brand: detail.brand,
+            brandId: detail.brandId,
+            sold: detail.sold,
+            ratings: detail.ratings,
+            quantity: parseInt(detail.quantity) - 1,
+        }
+        if(cameraInfo?.quantity < 0){
+            return 
+        }
+        else{
+            setDetail(cameraInfo)
+        }
+
+        const url = `http://localhost:5000/product/${inventoryId}`
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cameraInfo),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                setDetail(cameraInfo)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        toast.success(`One Item Delivered `, { id: "delivered" });
+        navigate('/inventory/' + inventoryId)
+    }
+
+
     return (
         <div className=' pb-5'>
             <div className="row ">
@@ -51,7 +97,7 @@ const ProductDetail = () => {
                         </div>
                         <div className='pt-5 d-flex justify-content-evenly'>
                             <button className='btn btn-success py-2 px-5 fw-bold'>Restoke </button>
-                            <button className='btn btn-danger py-2 px-5 fw-bold'>Delivered</button>
+                            <button onClick={handleDelivered} className='btn btn-danger py-2 px-5 fw-bold'>Delivered</button>
                         </div>
                     </div>
                 </div>
