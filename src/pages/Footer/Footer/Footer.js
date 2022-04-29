@@ -4,7 +4,7 @@ import FooterBottom from './FooterBottom/FooterBottom';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='' style={{backgroundColor : "#0e4c67"}}>
             <FooterTop/>
             <FooterBottom/>
         </div>

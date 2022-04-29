@@ -20,16 +20,17 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto"></Nav>
                         <Nav className='nav-style my-1'>
+                            <Nav.Link as={CustomLink} to='/inventories' className='mt-2 fw-bold'>Inventory Items</Nav.Link>
                             {user?.uid
                                 &&
                                 <>
-                                    <Nav.Link as={CustomLink} to='/manage-cause' className='mt-2 fw-bold'>Manage Causes</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/manage-items' className='mt-2 fw-bold'>Manage items</Nav.Link>
                                 </>
                             }
                             {user?.uid
                                 &&
                                 <>
-                                    <Nav.Link as={CustomLink} to='/add-causes' className='mt-2 fw-bold'>Add Causes</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/add-items' className='mt-2 fw-bold'>Add Items</Nav.Link>
 
                                 </>
                             }

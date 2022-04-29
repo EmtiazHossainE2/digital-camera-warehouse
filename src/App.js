@@ -9,6 +9,7 @@ import NotFound from './components/NotFound/NotFound';
 import Footer from './pages/Footer/Footer/Footer';
 import Header from './components/Header/Header';
 import { Toaster } from 'react-hot-toast';
+import InventoryItems from './pages/InventoryItems/InventoryItems';
 
 const App = () => {
     return (
@@ -17,13 +18,13 @@ const App = () => {
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}></Route>
+                <Route path='/inventories' element={<InventoryItems/>}></Route>
                 <Route path='/login' element={<Login/>}></Route>
                 <Route path='/signup' element={<Signup/>}></Route>
-                {/* <Route path='/' element={}></Route> */}
                 <Route path='/dashboard' element={<Dashboard/>}></Route>
                 <Route path='*' element={<NotFound/>}></Route>
             </Routes>
-            {/* <Footer/> */}
+            <Footer/>
         </div>
     );
 };

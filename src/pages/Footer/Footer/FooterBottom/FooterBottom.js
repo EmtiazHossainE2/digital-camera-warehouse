@@ -1,9 +1,15 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import './FooterBottom.css'
 const FooterBottom = () => {
+    const currentYear = new Date().getFullYear();
     return (
         <div>
-            <h2>This is footer bottom section</h2>
+            <div className="copy-right text-center">
+                    <p>Copyright © {currentYear} 
+                        <Link to='/' > Digital Camera warehouse</Link>
+                    </p>
+                </div>
         </div>
     );
 };
