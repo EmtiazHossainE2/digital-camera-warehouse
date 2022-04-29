@@ -10,6 +10,7 @@ import Footer from './pages/Footer/Footer/Footer';
 import Header from './components/Header/Header';
 import { Toaster } from 'react-hot-toast';
 import InventoryItems from './pages/InventoryItems/InventoryItems';
+import ProductDetail from './pages/Home/ProductDetail/ProductDetail';
 
 const App = () => {
     return (
@@ -18,7 +19,8 @@ const App = () => {
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}></Route>
-                <Route path='/inventories' element={<InventoryItems/>}></Route>
+                <Route path='/inventory' element={<InventoryItems/>}></Route>
+                <Route path='/inventory/:inventoryId' element={<ProductDetail></ProductDetail>}></Route>
                 <Route path='/login' element={<Login/>}></Route>
                 <Route path='/signup' element={<Signup/>}></Route>
                 <Route path='/dashboard' element={<Dashboard/>}></Route>
