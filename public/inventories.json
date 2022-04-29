@@ -11,6 +11,7 @@
         "movie-type" : "MOV (Video: H.264 inter frame (IPB), Sound: Linear PCM, recording level can be manually adjusted by user)",
         "brand" : "Canon",
         "brandId": "31031",
+        "sold": "21",
         "ratings" : 5.0
     },
     {
@@ -25,6 +26,7 @@
         "movie-type" : "MOV (Video: H.264 inter frame (IPB), Sound: Linear PCM, recording level can be manually adjusted by user)",
         "brand" : "Canon",
         "brandId": "31032",
+        "sold": "23",
         "ratings" : 4.5
     },
     {
@@ -39,6 +41,7 @@
         "movie-type" : "MP4 (Video: H.264 inter frame, Sound: Linear PCM / AAC, recording level can be manually adjusted by user) MOV (Video: H.264 All-I Full HD, no sound) - time-lapse movie only",
         "brand" : "Canon",
         "brandId": "31033",
+        "sold": "25",
         "ratings" : 4.0
     },
     {
@@ -53,6 +56,7 @@
         "movie-type" : "Evaluative (when faces are detected with [Face+Tracking]), Center-weighted average (when no faces are detected)",
         "brand" : "Canon",
         "brandId": "31034",
+        "sold": "27",
         "ratings" : 5.0
     },
     {
@@ -67,6 +71,7 @@
         "movie-type" : "MP4 [Video: MPEG-4 AVC/H.264, Audio: MPEG-4 AAC-LC (stereo)]",
         "brand" : "Canon",
         "brandId": "31035",
+        "sold": "11",
         "ratings" : 4.0
     },
     {
@@ -81,6 +86,7 @@
         "movie-type" : "Auto, Cloudy, Color Temperature, Custom, Daylight, Flash, Fluorescent (White), Shade, Tungsten",
         "brand" : "Canon",
         "brandId": "31036",
+        "sold": "13",
         "ratings" : 4.5
     }
     

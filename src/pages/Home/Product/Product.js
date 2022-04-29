@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Product.css'
 const Product = ({product}) => {
-    const { name,img,description,ratings,price,quantity,supplier , brandId} = product
+    const { name,img,description,price,quantity,supplier , _id} = product
     return (
         <div data-aos="fade-down"
             data-aos-easing="linear"
@@ -17,7 +17,7 @@ const Product = ({product}) => {
                     <h6 className='mt-2 mb-0 fw-bolder'>Price : $ {price}</h6>
                     <h6 className='mt-2 mb-0 fw-bolder'>Quantity : {quantity}</h6>
                     <h6 className='mt-2 mb-0 fw-bolder'>Supplier : {supplier}</h6>
-                    <Link to={'/inventory/' + brandId}><button className='btn btn-outline-success text-capitalize mt-3 fw-bold'> Manage Update  </button></Link>
+                    <Link to={'/inventory/' + _id}><button className='btn btn-outline-success text-capitalize mt-3 fw-bold'> Manage Update  </button></Link>
                 </div>
             </div>
         </div>
