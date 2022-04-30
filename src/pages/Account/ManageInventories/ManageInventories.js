@@ -8,22 +8,22 @@ const ManageInventories = () => {
     const handleDelete = (id) => {
         const deleteItem = window.confirm('Be Careful Before deleting this item ')
         if (deleteItem) {
-            const url = `https://camera-warehouse.herokuapp.com/product/${id}`
+            const url = `http://localhost:5000/product${id}`
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    const exists = products.filter(charity => charity._id !== id)
-                    setProducts(exists)
+                    const afterDelete = products.filter(product => product._id !== id)
+                    setProducts(afterDelete)
                 })
 
         }
     }
 
     return (
-        <div className='mt-5 py-5 '>
+        <div className='py-5 '>
             <h2 className='text-center '>Manage Items : {products.length}</h2>
             <div className='hr-style mx-auto  mb-3 '>
             </div>
@@ -32,13 +32,10 @@ const ManageInventories = () => {
                     <div className="col-md-1  d-flex justify-content-center pb-1  align-items-center">
                         <span className='pe-5'>List</span>
                     </div>
-                    <div className="col-md-1 d-flex justify-content-center pb-1  align-items-center">
+                    <div className="col-md-2 d-flex justify-content-center pb-1  align-items-center">
                         <h5> Image</h5>
                     </div>
-                    <div className="col-md-2 d-flex justify-content-center pb-1  align-items-center">
-                        <h5>Name</h5>
-                    </div>
-                    <div className="col-md-6 d-flex justify-content-center pb-1  align-items-center">
+                    <div className="col-md-7 d-flex justify-content-center pb-1  align-items-center">
                         <h5>Product Info</h5>
                     </div>
                     <div className="col-md-2 d-flex justify-content-center pb-1  align-items-center">

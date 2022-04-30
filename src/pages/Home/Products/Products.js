@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 import './Products.css'
 const Products = () => {
     const [products, setProducts] = useProducts()
-    const sliceProduct = products.slice(0,3)
+    const sliceProduct = products.slice(0,6)
 
     return (
         <div className='container mb-5'>
