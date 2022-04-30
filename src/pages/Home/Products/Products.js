@@ -2,29 +2,29 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Products.css'
 const Products = () => {
-    const [products,setProducts] = useState([])
-    useEffect(()=>{
-        fetch('http://localhost:5000/product')
-        .then(res => res.json())
-        .then(data => {
-            setProducts(data)
-        })
-    },[])
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        fetch('https://camera-warehouse.herokuapp.com/product')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [])
     return (
         <div className='container mb-5'>
             <div className='text-center mt-3 mb-5'>
-            <h1 className='text-success '>Feature Inventories</h1>
-            <h5 className='fst-italic mt-3'>An able 4K-capable video machine. </h5>
-            <div className='hr-style mx-auto pt-1 '>
-                <hr />
-            </div>
+                <h1 className='text-success '>Feature Inventories</h1>
+                <h5 className='fst-italic mt-3'>An able 4K-capable video machine. </h5>
+                <div className='hr-style mx-auto pt-1 '>
+                    <hr />
+                </div>
             </div>
             <div>
                 <div className="row ">
                     {
                         products.map(product => <Product
-                        key={product._id}
-                        product={product}
+                            key={product._id}
+                            product={product}
                         ></Product>)
                     }
                 </div>

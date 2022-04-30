@@ -38,7 +38,7 @@ const ProductDetail = () => {
             setDetail(cameraInfo)
         }
 
-        const url = `http://localhost:5000/product/${inventoryId}`
+        const url = `https://camera-warehouse.herokuapp.com/product/${inventoryId}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -90,7 +90,7 @@ const ProductDetail = () => {
                 setDetail(cameraInfo)
             }
 
-            const url = `http://localhost:5000/product/${inventoryId}`
+            const url = `https://camera-warehouse.herokuapp.com/product/${inventoryId}`
             fetch(url, {
                 method: 'PUT',
                 headers: {

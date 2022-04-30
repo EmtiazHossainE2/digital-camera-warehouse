@@ -23,7 +23,7 @@ const Header = () => {
                             {user?.uid
                                 &&
                                 <>
-                                    <Nav.Link as={CustomLink} to='/manage-inventories' className='mt-2 fw-bold'>Manage Inventories</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/manage-inventories' className='mt-2 fw-bold'>Manage Items</Nav.Link>
                                 </>
                             }
                             {user?.uid
