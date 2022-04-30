@@ -131,13 +131,13 @@ const ProductDetail = () => {
                             <hr />
                         </div>
                         <div className='mt-3 pill-btn '>
-                            <button className='btn btn-outline-success pe-4 me-3 w-25'>Price : ${detail?.price}</button>
-                            <button className='btn btn-outline-success me-3'>Product Code : {detail?.brandId}</button>
-                            <button className='btn btn-outline-success w-25'>Brand : {detail?.brand}</button>
+                            <button className='btn btn-outline-dark pe-4 me-3 w-25'>Price : ${detail?.price}</button>
+                            <button className='btn btn-outline-dark me-3'>Product Code : {detail?.brandId}</button>
+                            <button className='btn btn-outline-dark w-25'>Brand : {detail?.brand}</button>
                         </div>
                         <div className='mt-3 pill-btn '>
-                            <button className='btn btn-outline-success me-3'>Total Sold : {detail?.sold}</button>
-                            <button className='btn btn-outline-success '>Supplier : {detail?.supplier}</button>
+                            <button className='btn btn-outline-dark me-3'>Total Sold : {detail?.sold}</button>
+                            <button className='btn btn-outline-dark '>Supplier : {detail?.supplier}</button>
                         </div>
 
                         <div>
