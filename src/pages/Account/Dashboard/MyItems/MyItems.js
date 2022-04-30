@@ -10,12 +10,33 @@ const MyItems = () => {
     useEffect(() => {
         const handleItems = async () => {
             const email = user.email
-            const url = `http://localhost:5000/product?email=${email}`
+            const url = `https://camera-warehouse.herokuapp.com/my-items?email=${email}`
             const { data } = await axios.get(url)
+            console.log(data);
             setMyItems(data)
         }
         handleItems()
     }, [user])
+
+    const handleDelete = (id) => {
+        const deleteItem = window.confirm('Be Careful Before deleting this item ')
+        if (deleteItem) {
+            const url = `https://camera-warehouse.herokuapp.com/product/${id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const afterDelete = myItems.filter(product => product._id !== id)
+                    setMyItems(afterDelete)
+                })
+
+        }
+    }
+
+
+
     return (
         <div className='py-5 '>
             <div className='text-center'>
@@ -27,7 +48,7 @@ const MyItems = () => {
 
             </div>
             <div>
-                <h2 className='text-center mt-3'> You Stoke :  {myItems?.length}</h2>
+                <h2 className='text-center mt-3'> You Stoke :  {myItems?.length} items</h2>
             </div>
             <div className='hr-style mx-auto  mb-3 '>
             </div>
@@ -37,6 +58,7 @@ const MyItems = () => {
                         key={product._id}
                         product={product}
                         index={index}
+                        handleDelete={handleDelete}
                     ></ManageItem>)
                 }
             </div>

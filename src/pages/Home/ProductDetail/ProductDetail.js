@@ -115,7 +115,7 @@ const ProductDetail = () => {
 
 
     return (
-        <div className=' pb-5'>
+        <div className=' pb-5 product-container'>
             <div className="row ">
                 <div className="col-lg-6  pt-3 d-flex  justify-content-center align-items-center text-center">
                     <div className='container ps-5'>
