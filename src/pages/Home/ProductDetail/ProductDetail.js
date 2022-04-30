@@ -131,7 +131,7 @@ const ProductDetail = () => {
                             <hr />
                         </div>
                         <div className='mt-3 pill-btn '>
-                            <button className='btn btn-outline-dark pe-4 me-3 w-25'>Price : ${detail?.price}</button>
+                            <button className='btn btn-outline-dark pe-4 me-3 w-25 mb-1'>Price : ${detail?.price}</button>
                             <button className='btn btn-outline-dark me-3'>Product Code : {detail?.brandId}</button>
                             <button className='btn btn-outline-dark w-25'>Brand : {detail?.brand}</button>
                         </div>
@@ -158,7 +158,7 @@ const ProductDetail = () => {
                             <div className="col-md-6">
                                 <button onClick={handleDelivered} className='btn btn-danger py-2 px-5 mb-3 fw-bold'>Delivered</button>
                                 <Link to='/manage-inventories'>
-                                    <button className='btn btn-outline-dark pe-4 me-3  py-2 fs-5'>Manage Inventories</button>
+                                    <button className='btn btn-outline-dark pe-4 me-3 mb-1   py-2 fs-5'>Manage Inventories</button>
                                 </Link>
 
                             </div>
@@ -189,7 +189,7 @@ const ProductDetail = () => {
                         </div>
                         <h3>Description</h3>
                         <div className="pt-3 " >
-                            <p>{detail?.description}</p>
+                            <p style={{textAlign: 'justify'}}>{detail?.description}</p>
                         </div>
                     </div>
                     <div className="col-md-3"></div>

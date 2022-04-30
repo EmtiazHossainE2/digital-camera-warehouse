@@ -1,6 +1,8 @@
 import React from 'react';
 import useProducts from '../../../hooks/useProducts';
 import ManageItem from '../ManageItem/ManageItem';
+import { FiCamera } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const ManageInventories = () => {
     const [products, setProducts] = useProducts()
@@ -8,7 +10,7 @@ const ManageInventories = () => {
     const handleDelete = (id) => {
         const deleteItem = window.confirm('Be Careful Before deleting this item ')
         if (deleteItem) {
-            const url = `http://localhost:5000/product${id}`
+            const url = `https://camera-warehouse.herokuapp.com/product/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -24,6 +26,11 @@ const ManageInventories = () => {
 
     return (
         <div className='py-5 '>
+            <div className='container'>
+                <Link to='/stoke-item'>
+                    <button className='btn btn-success fs-5 mb-3' >Stoke New Camera <span className='ps-3 fs-4'><FiCamera /></span></button>
+                </Link>
+            </div>
             <h2 className='text-center '>Manage Items : {products.length}</h2>
             <div className='hr-style mx-auto  mb-3 '>
             </div>

@@ -12,6 +12,7 @@ import { Toaster } from 'react-hot-toast';
 import ProductDetail from './pages/Home/ProductDetail/ProductDetail';
 import RequireAuth from './pages/Account/RequireAuth/RequireAuth';
 import ManageInventories from './pages/Account/ManageInventories/ManageInventories';
+import StokeItem from './pages/Account/StokeItem/StokeItem';
 
 const App = () => {
     return (
@@ -23,6 +24,11 @@ const App = () => {
                 <Route path='/manage-inventories' element={
                     <RequireAuth>
                         <ManageInventories></ManageInventories>
+                    </RequireAuth>
+                }></Route>
+                <Route path='/stoke-item' element={
+                    <RequireAuth>
+                        <StokeItem/>
                     </RequireAuth>
                 }></Route>
                 <Route path='/inventory/:inventoryId' element={
