@@ -9,9 +9,9 @@ import NotFound from './components/NotFound/NotFound';
 import Footer from './pages/Footer/Footer/Footer';
 import Header from './components/Header/Header';
 import { Toaster } from 'react-hot-toast';
-import InventoryItems from './pages/InventoryItems/InventoryItems';
 import ProductDetail from './pages/Home/ProductDetail/ProductDetail';
 import RequireAuth from './pages/Account/RequireAuth/RequireAuth';
+import ManageInventories from './pages/Account/ManageInventories/ManageInventories';
 
 const App = () => {
     return (
@@ -20,7 +20,11 @@ const App = () => {
             <Header />
             <Routes>
                 <Route path='/' element={<Home />}></Route>
-                <Route path='/inventory' element={<InventoryItems />}></Route>
+                <Route path='/manage-inventories' element={
+                    <RequireAuth>
+                        <ManageInventories></ManageInventories>
+                    </RequireAuth>
+                }></Route>
                 <Route path='/inventory/:inventoryId' element={
                     <RequireAuth>
                         <ProductDetail></ProductDetail>

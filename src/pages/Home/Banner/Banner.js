@@ -6,6 +6,7 @@ import banner1 from '../../../images/banner/banner-1.jpg'
 import banner2 from '../../../images/banner/banner-2.jpg'
 import banner3 from '../../../images/banner/banner-3.jpg'
 import banner4 from '../../../images/banner/banner-3.jpg'
+import { Link } from 'react-router-dom';
 
 
 const Banner = () => {
@@ -51,7 +52,9 @@ const Banner = () => {
                         <h3>Mirrorless Digital Camera for {currentYear}</h3>
                         <p style={{ textAlign: 'justify' }}> An excellent choice for the modern content maker or storyteller. It combines a 24.2-megapixel high-resolution sensor capable of producing razor-sharp pictures and ultra-high definition 4K video with an articulating LCD touch screen ideal for capturing unique angle images and vlogs.</p>
                         <p>Available for quick and convenient pairing with a smartphone or tablet for wireless image sharing, and Bluetooth is also featured for image sharing to and remote camera control from a mobile device. It comes with no parts warranty.</p>
-                        <button className='btn btn-success  mt-3 mb-5'>Manage More </button>
+                        <Link to='/manage-inventories'>
+                            <button className='btn btn-success  mt-3 mb-5'>Manage More </button>
+                        </Link>
                     </div>
                 </div>
             </div>

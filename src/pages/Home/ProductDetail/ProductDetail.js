@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import useProductDetail from '../../../hooks/useProductDetail';
 import ads from '../../../images/ads.png'
 import './ProductDetail.css'
@@ -63,9 +63,9 @@ const ProductDetail = () => {
         event.preventDefault()
         const reStoke = stokeRef.current.value;
         // console.log(reStoke);
-        if (reStoke === '' ) {
+        if (reStoke === '') {
             toast.error(`Please Stoke Items `, { id: "addItem" });
-            return ;
+            return;
         }
         else {
             const cameraInfo = {
@@ -120,6 +120,7 @@ const ProductDetail = () => {
                 <div className="col-lg-6  pt-3 d-flex  justify-content-center align-items-center text-center">
                     <div className='container ps-5'>
                         <img className='w-100 ' src={detail?.img} alt="" />
+                        <h4 ><span>Ratings : {detail?.ratings}</span></h4>
                     </div>
                 </div>
 
@@ -156,6 +157,9 @@ const ProductDetail = () => {
                         <div className="row mt-4">
                             <div className="col-md-6">
                                 <button onClick={handleDelivered} className='btn btn-danger py-2 px-5 mb-3 fw-bold'>Delivered</button>
+                                <Link to='/manage-inventories'>
+                                    <button className='btn btn-outline-dark pe-4 me-3  py-2 fs-5'>Manage Inventories</button>
+                                </Link>
 
                             </div>
                             <div className="col-md-6">
@@ -175,7 +179,7 @@ const ProductDetail = () => {
                 <div className="row container py-5 custom-border-top">
                     <div className="col-md-6 ">
                         <div>
-                            <h4 className=''>Specification</h4>
+                            <h4 className=''>Specification </h4>
                             <div className='w-25 '>
                                 <hr />
                             </div>
