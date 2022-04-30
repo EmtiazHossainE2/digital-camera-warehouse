@@ -1,19 +1,25 @@
 import axios from 'axios';
 import React from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { ImBoxAdd } from 'react-icons/im';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../../Firebase/firebase.init';
 import './StokeItem.css'
 
 const StokeItem = () => {
     const navigate = useNavigate()
+    const [user, loading, error] = useAuthState(auth);
+
 
     //handleStoke 
     const handleStoke = event => {
         event.preventDefault()
         console.log('clicked');
         const cameraInfo = {
+            displayName: user.displayName,
+            email: user.email,
             name: event.target.name.value,
             description: event.target.description.value,
             price: event.target.price.value,
@@ -57,6 +63,14 @@ const StokeItem = () => {
             </div>
             <div className="container w-75 mx-auto py-5 stoke-form">
                 <Form noValidate onSubmit={handleStoke} >
+                    <Row className="mb-3">
+                        <Form.Group as={Col} md="6" controlId="validationCustom03">
+                            <Form.Control type="text" value={user?.displayName} placeholder="Full Name" required disabled/>
+                        </Form.Group>
+                        <Form.Group as={Col} md="6" controlId="validationCustom03">
+                            <Form.Control type="email" value={user?.email} name='email' placeholder='Email' required disabled />
+                        </Form.Group>
+                    </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} md="4" controlId="validationCustom01">
                             <Form.Control

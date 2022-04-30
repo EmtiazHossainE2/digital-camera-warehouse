@@ -13,6 +13,7 @@ import ProductDetail from './pages/Home/ProductDetail/ProductDetail';
 import RequireAuth from './pages/Account/RequireAuth/RequireAuth';
 import ManageInventories from './pages/Account/ManageInventories/ManageInventories';
 import StokeItem from './pages/Account/StokeItem/StokeItem';
+import MyItems from './pages/Account/Dashboard/MyItems/MyItems';
 
 const App = () => {
     return (
@@ -24,6 +25,11 @@ const App = () => {
                 <Route path='/manage-inventories' element={
                     <RequireAuth>
                         <ManageInventories></ManageInventories>
+                    </RequireAuth>
+                }></Route>
+                <Route path='/my-items' element={
+                    <RequireAuth>
+                        <MyItems/>
                     </RequireAuth>
                 }></Route>
                 <Route path='/stoke-item' element={
