@@ -3,10 +3,11 @@ import React from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { ImBoxAdd } from 'react-icons/im';
+import { useNavigate } from 'react-router-dom';
 import './StokeItem.css'
 
 const StokeItem = () => {
-
+    const navigate = useNavigate()
 
     //handleStoke 
     const handleStoke = event => {
@@ -32,6 +33,18 @@ const StokeItem = () => {
             toast.error(`Please Give All Info `, { id: "info" });
         }
         
+        else {
+            axios.post('https://camera-warehouse.herokuapp.com/product', cameraInfo)
+                .then(response => {
+                    console.log(response);
+                    toast.success(`Your Camera Is Stoked `, { id: "stokeItem" });
+                    event.target.reset()
+                    navigate('/manage-inventories')
+                })
+                .catch(function (error) {
+                    toast.error(`Something is wrong . Try later `, { id: "stokeError" });
+                });
+        }
     }
 
 

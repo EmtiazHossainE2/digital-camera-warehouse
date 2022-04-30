@@ -27,7 +27,7 @@ const ManageItem = ({ product, index, handleDelete }) => {
                         </div>
                         <div className="col-md-6">
                             <button className='btn '>Brand : {brand} </button> <br />
-                            <button className='btn '>Price : {price} </button> <br />
+                            <button className='btn '>Price : ${price} </button> <br />
                             <button className='btn '>Ratings : {ratings} </button> 
                         </div>
                     </div>
@@ -55,14 +55,3 @@ const ManageItem = ({ product, index, handleDelete }) => {
 };
 
 export default ManageItem;
-
-{/* 
-<h3 className='text-center rounded-circle p-2'>{index}</h3>
-<img className='product-img p-1 w-100' src={img} alt="" />
-<h5 className=' text-capitalize'>{name}</h5>
-<p className='mb-0'>{description.slice(0, 100)}</p>
-<h6 className='mt-2 mb-0 fw-bolder'>Price : $ {price}</h6>
-<h6 className='mt-2 mb-0 fw-bolder'>Quantity : {quantity}</h6>
-<h6 className='mt-2 mb-0 fw-bolder'>Supplier : {supplier}</h6>
-<h6 className='mt-2 mb-0 fw-bolder'>Supplier : {sold}</h6>
-<button onClick={() => handleDelete(_id)} className='btn btn-danger'>Delete</button>                     */}
