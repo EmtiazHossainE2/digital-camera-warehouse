@@ -6,15 +6,15 @@ import ManageItem from '../../ManageItem/ManageItem';
 
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
-    const [products, setProducts] = useState([])
+    const [myItems , setMyItems] = useState([])
     useEffect(() => {
-        const handleDonations = async () => {
+        const handleItems = async () => {
             const email = user.email
             const url = `http://localhost:5000/product?email=${email}`
             const { data } = await axios.get(url)
-            setProducts(data)
+            setMyItems(data)
         }
-        handleDonations()
+        handleItems()
     }, [user])
     return (
         <div className='py-5 '>
@@ -27,13 +27,13 @@ const MyItems = () => {
 
             </div>
             <div>
-                <h2 className='text-center mt-3'> You Stoke :  {products?.length}</h2>
+                <h2 className='text-center mt-3'> You Stoke :  {myItems?.length}</h2>
             </div>
             <div className='hr-style mx-auto  mb-3 '>
             </div>
             <div>
                 {
-                    products.map((product, index) => <ManageItem
+                    myItems.map((product, index) => <ManageItem
                         key={product._id}
                         product={product}
                         index={index}

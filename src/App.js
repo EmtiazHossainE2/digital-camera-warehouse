@@ -14,6 +14,7 @@ import RequireAuth from './pages/Account/RequireAuth/RequireAuth';
 import ManageInventories from './pages/Account/ManageInventories/ManageInventories';
 import StokeItem from './pages/Account/StokeItem/StokeItem';
 import MyItems from './pages/Account/Dashboard/MyItems/MyItems';
+import Blog from './pages/Blog/Blog';
 
 const App = () => {
     return (
@@ -42,6 +43,7 @@ const App = () => {
                         <ProductDetail></ProductDetail>
                     </RequireAuth>
                 }></Route>
+                <Route path='blog' element={<Blog/>}></Route>
                 <Route path='/login' element={<Login />}></Route>
                 <Route path='/signup' element={<Signup />}></Route>
                 <Route path='/dashboard' element={<Dashboard />}></Route>
