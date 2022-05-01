@@ -27,7 +27,7 @@ const RequireAuth = ({ children }) => {
             <button className='btn text-dark btn-light  mt-4 py-2 '
                 onClick={async () => {
                     await sendEmailVerification();
-                    toast.success('Sent email');
+                    toast.success('Sent verification email success');
                 }}
             >
                 Resend Verification

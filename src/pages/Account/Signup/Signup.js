@@ -47,11 +47,6 @@ const Signup = () => {
         if (passwordValue.length < 6) {
             setPassword({ value: "", error: "Password must be 6 character or more" });
         }
-        else if (!/(?=.*[A-Z])/.test(passwordValue)) {
-            setPassword({
-                value: "", error: "Password must contain a capital letter",
-            });
-        }
         else {
             setPassword({ value: passwordValue, error: "" });
         }
@@ -86,6 +81,7 @@ const Signup = () => {
                 .then(() => {
                     toast.success("Welcome to Digital Camera Warehouse", { id: "success" });
                     navigate(from)
+                    toast.success("Please verify your email", { id: "emailVerify" });
                 })
         }
     }
@@ -110,6 +106,7 @@ const Signup = () => {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Control type="password" onBlur={handlePassword} className='py-2 fs-5 fst-italic' name='password' placeholder="Password" />
                         </Form.Group>
+                        {password?.error && <p className="text-danger"> {password.error}</p>}
                         <Button variant="primary" type="submit" className='w-100 fs-5'>
                             Register
                         </Button>
