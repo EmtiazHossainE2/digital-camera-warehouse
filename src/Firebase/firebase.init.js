@@ -4,13 +4,13 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBrBs7aXtZC4mXJmaO58SpBDh5iFTb6B8w",
-    authDomain: "digital-camera-warehouse.firebaseapp.com",
-    projectId: "digital-camera-warehouse",
-    storageBucket: "digital-camera-warehouse.appspot.com",
-    messagingSenderId: "864553755242",
-    appId: "1:864553755242:web:ba9a20a1fd9d7de941e013"
-  };
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId:process.env.REACT_APP_appId
+};
 
 
 

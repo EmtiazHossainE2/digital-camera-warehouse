@@ -1,4 +1,4 @@
-# This is Digital camera warehouse where dealer can stock camera . 
+#  Digital Camera Warehouse 
 
 
 # Short description 
