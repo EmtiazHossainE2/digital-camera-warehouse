@@ -30,7 +30,7 @@ const Header = () => {
                                 &&
                                 <>
                                     <Nav.Link as={CustomLink} to='/my-items' className='mt-2 fw-bold'>My Items</Nav.Link>
-                                    <Nav.Link as={CustomLink} to='/stoke-item' className='mt-2 fw-bold'>Stoke Item</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/stock-item' className='mt-2 fw-bold'>Stock Item</Nav.Link>
 
                                 </>
                             }

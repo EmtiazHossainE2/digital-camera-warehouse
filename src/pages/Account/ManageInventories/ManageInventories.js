@@ -27,8 +27,8 @@ const ManageInventories = () => {
     return (
         <div className='py-5 '>
             <div className='container'>
-                <Link to='/stoke-item'>
-                    <button className='btn btn-success fs-5 mb-3' >Stoke New Camera <span className='ps-3 fs-4'><FiCamera /></span></button>
+                <Link to='/stock-item'>
+                    <button className='btn btn-success fs-5 mb-3' >Stock New Camera <span className='ps-3 fs-4'><FiCamera /></span></button>
                 </Link>
             </div>
             <h2 className='text-center '>Manage Items : {products.length}</h2>

@@ -33,7 +33,7 @@ const App = () => {
                         <MyItems/>
                     </RequireAuth>
                 }></Route>
-                <Route path='/stoke-item' element={
+                <Route path='/stock-item' element={
                     <RequireAuth>
                         <StokeItem/>
                     </RequireAuth>

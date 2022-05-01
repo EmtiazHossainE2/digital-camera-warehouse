@@ -166,7 +166,7 @@ const ProductDetail = () => {
                                 <Form noValidate onSubmit={handleStoke}>
                                     <input className=' mb-3 py-2 ' ref={stokeRef} type="number" name='number' placeholder='Stoke quantity ' required />
                                     <Button variant="primary" type="submit" className='w-100 fs-5'>
-                                        Stoke Item
+                                        ReStock Item
                                     </Button>
                                 </Form>
                             </div>
