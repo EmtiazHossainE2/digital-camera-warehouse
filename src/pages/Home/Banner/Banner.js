@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const Banner = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <div>
+        <div className='pb-5'>
             <div className="row  px-4 pt-1  banner">
                 <div className="col-lg-6 ">
                     <Carousel>

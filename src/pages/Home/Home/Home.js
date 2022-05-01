@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Integration from '../Integration/Integration';
 import JoinForm from '../JoinForm/JoinForm';
 import Products from '../Products/Products';
 import Showup from '../Showup/Showup';
@@ -10,6 +11,7 @@ const Home = () => {
     return (
         <div >
             <Banner />
+            <Integration/>
             <Products />
             <div className='container d-flex justify-content-end'>
                 <Link to='/manage-inventories'>
