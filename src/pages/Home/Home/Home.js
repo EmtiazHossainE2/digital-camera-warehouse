@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Business from '../Business/Business';
 import Integration from '../Integration/Integration';
 import JoinForm from '../JoinForm/JoinForm';
 import MobileApp from '../MobileApp/MobileApp';
@@ -20,6 +21,7 @@ const Home = () => {
                     <button className='btn btn-success'>Manage Inventories</button>
                 </Link>
             </div>
+            <Business/>
             <MobileApp/>
             <JoinForm/>
             {/* <Testimonial /> */}

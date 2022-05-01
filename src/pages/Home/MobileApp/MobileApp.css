@@ -1,0 +1,9 @@
+
+@media only screen and (max-width:768px) {
+    .playstore, .appstore , .mobileLeft , .mobileRight{
+        display: flex;
+        flex-direction: column ; 
+        align-items: center;
+        margin-bottom: 5px;
+    }
+}
