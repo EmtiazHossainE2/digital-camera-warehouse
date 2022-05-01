@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef} from 'react';
 import { Button, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -14,8 +14,16 @@ const ProductDetail = () => {
     const stokeRef = useRef('');
     // {description,afPoints , brand,brandId,modes,movieType,quantity,price,sold,supplier,description,ratings}
 
+
+
     //handle delivered 
     const handleDelivered = () => {
+        let deliver = 1;
+        let quantityParse = parseInt(detail.quantity);
+        let quantity = quantityParse - deliver;
+
+        console.log(quantity);
+        
         const cameraInfo = {
             name: detail.name,
             description: detail.description,
@@ -29,15 +37,9 @@ const ProductDetail = () => {
             brandId: detail.brandId,
             sold: parseInt(detail.sold) + 1,
             ratings: detail.ratings,
-            quantity: parseInt(detail.quantity) - 1,
+            quantity: quantity 
         }
-        if (cameraInfo?.quantity < 0) {
-            return
-        }
-        else {
-            setDetail(cameraInfo)
-        }
-
+        
         const url = `https://camera-warehouse.herokuapp.com/product/${inventoryId}`
         fetch(url, {
             method: 'PUT',
@@ -56,6 +58,14 @@ const ProductDetail = () => {
             });
         toast.success(`One Item Delivered `, { id: "delivered" });
         navigate('/inventory/' + inventoryId)
+
+        if (cameraInfo?.quantity < 0) {
+            return
+        }
+        else {
+            setDetail(cameraInfo)
+        }
+        
     }
 
     //handle stoke 
@@ -156,7 +166,7 @@ const ProductDetail = () => {
                         </div>
                         <div className="row mt-4">
                             <div className="col-md-6">
-                                <button onClick={handleDelivered} className='btn btn-danger py-2 px-5 mb-3 fw-bold'>Delivered</button>
+                                <button onClick={() => handleDelivered()} className='btn btn-danger py-2 px-5 mb-3 fw-bold'>Delivered</button>
                                 <Link to='/manage-inventories'>
                                     <button className='btn btn-outline-dark pe-4 me-3 mb-1   py-2 fs-5'>Manage Inventories</button>
                                 </Link>

@@ -44,8 +44,7 @@ const FooterTop = () => {
                 <div className="col-md-4 col-sm-12">
                     <div className='mt-4 logo text-center'>
                         <Link className='text-decoration-none' to='/'>
-                            <h4 className='text-light  py-4'>Digital Camera Warehouse</h4>
-                            <div>
+                            <div className='mt-5'>
                                 <img src={logo} alt="" />
                             </div>
                         </Link>

@@ -1,21 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import deleteIcon from '../../../images/delete.png'
 import './ManageItem.css'
 
 const ManageItem = ({ product, index, handleDelete }) => {
-    const { name, description, price, quantity, img, supplier, afPoints, brand, brandId, modes, movieType, sold, ratings, _id } = product
+    const { name,  price, quantity, img, supplier, afPoints, brand,  modes, movieType, sold, ratings,  } = product
 
     // {name,description,price,quantity,img,supplier,afPoints , brand,brandId,modes,movieType,sold,ratings}
 
     return (
         <div className='container'>
-            <div className="row border border-2">
+            <div className="row border border-2 rounded my-3 pb-2">
                 <div className="col-md-1  d-flex text-center  justify-content-center pb-1  align-items-center">
-                    <span className='pe-5 fw-bold'>{index + 1}.</span>
+                    <span className='pe-5 fw-bold pt-3 text-center'>{index + 1}.</span>
                 </div>
-                <div className="col-md-2 d-flex flex-column justify-content-center pb-1  ">
-                    <h5>  <img className=' item-img ' src={img} alt="" /></h5> <br />
+                <div className="col-md-2 d-flex flex-column manage-items justify-content-center pb-1  ">
+                    <h5 >  <img className=' item-img ' src={img} alt="" /></h5> <br />
                     <h5>{name}</h5>
                 </div>
                 <div className="col-md-7 px-5 py-2 ">
