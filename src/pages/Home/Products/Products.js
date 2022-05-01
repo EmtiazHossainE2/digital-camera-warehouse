@@ -7,7 +7,7 @@ const Products = () => {
     const sliceProduct = products.slice(0,6)
 
     return (
-        <div className='container mb-5'>
+        <div className='container '>
             <div className='text-center mt-3 mb-5'>
                 <h1 className='text-success '>Feature Inventories</h1>
                 <h5 className='fst-italic mt-3'>An able 4K-capable video machine. </h5>

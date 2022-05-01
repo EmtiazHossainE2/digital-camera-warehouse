@@ -11,7 +11,7 @@ const Home = () => {
         <div >
             <Banner />
             <Products />
-            <div className='container'>
+            <div className='container d-flex justify-content-end'>
                 <Link to='/manage-inventories'>
                     <button className='btn btn-success'>Manage Inventories</button>
                 </Link>
