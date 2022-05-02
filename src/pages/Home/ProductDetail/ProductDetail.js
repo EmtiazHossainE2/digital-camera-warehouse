@@ -132,7 +132,7 @@ const ProductDetail = () => {
                     <div className='container ps-5'>
                         <img className='w-100 ' src={detail?.img} alt="" />
                         <div className="">
-                            {detail && <Ratings ratings={detail?.ratings} ></Ratings>}
+                            {detail && <Ratings ratings={detail?.ratings} ></Ratings> }
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../../components/Loading/Loading';
 import useProducts from '../../../hooks/useProducts';
 import Product from '../Product/Product';
 import './Products.css'
 const Products = () => {
     const [products, setProducts] = useProducts()
     const sliceProduct = products.slice(0,6)
+
+    if(sliceProduct <= 0){
+        return <Loading/>
+    }
 
     return (
         <div className='container '>

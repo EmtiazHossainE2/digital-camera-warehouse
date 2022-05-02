@@ -3,9 +3,15 @@ import useProducts from '../../../hooks/useProducts';
 import ManageItem from '../ManageItem/ManageItem';
 import { FiCamera } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import Loading from '../../../components/Loading/Loading';
 
 const ManageInventories = () => {
     const [products, setProducts] = useProducts()
+
+    if(products <= 0){
+        return <Loading/>
+    }
+
 
     const handleDelete = (id) => {
         const deleteItem = window.confirm('Be Careful Before deleting this item ')

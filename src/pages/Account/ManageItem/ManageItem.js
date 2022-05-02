@@ -1,4 +1,5 @@
 import React from 'react';
+import Ratings from '../../../components/Ratings/Ratings';
 import deleteIcon from '../../../images/delete.png'
 import './ManageItem.css'
 
@@ -28,6 +29,7 @@ const ManageItem = ({ product, index, handleDelete }) => {
                             <button className='btn '>Brand : {brand} </button> <br />
                             <button className='btn '>Price : ${price} </button> <br />
                             <button className='btn '>Ratings : {ratings} </button> 
+                            {/* {product && <Ratings ratings={product?.ratings} ></Ratings> } */}
                         </div>
                     </div>
                     <div>
