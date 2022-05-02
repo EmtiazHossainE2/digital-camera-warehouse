@@ -13,9 +13,6 @@ const ProductDetail = () => {
     const { inventoryId } = useParams()
     const [detail, setDetail] = useProductDetail(inventoryId)
     const stokeRef = useRef('');
-    // {description,afPoints , brand,brandId,modes,movieType,quantity,price,sold,supplier,description,ratings}
-
-
 
     //handle delivered 
     const handleDelivered = () => {
@@ -51,11 +48,11 @@ const ProductDetail = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
                 setDetail(cameraInfo)
             })
             .catch((error) => {
-                console.error('Error:', error);
+                // console.error('Error:', error);
             });
         toast.success(`One Item Delivered `, { id: "delivered" });
         navigate('/inventory/' + inventoryId)
@@ -111,13 +108,13 @@ const ProductDetail = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Success:', data);
+                    // console.log('Success:', data);
                     setDetail(cameraInfo)
                 })
                 .catch((error) => {
-                    console.error('Error:', error);
+                    // console.error('Error:', error);
                 });
-            toast.success(`Restoke Item Success `, { id: "restoke" });
+            toast.success(`Restock Item Success `, { id: "restock" });
             event.target.reset()
             navigate('/inventory/' + inventoryId)
         }
@@ -169,7 +166,12 @@ const ProductDetail = () => {
                         </div>
                         <div className="row mt-4">
                             <div className="col-md-6">
+                                {detail?.quantity <= 0 
+                                ? 
+                                <button  className='btn btn-danger py-2 px-5 mb-3 fw-bold ' >Out Of Stock</button> 
+                                : 
                                 <button onClick={() => handleDelivered()} className='btn btn-danger py-2 px-5 mb-3 fw-bold'>Delivered</button>
+                                }
                                 <Link to='/manage-inventories'>
                                     <button className='btn btn-outline-dark pe-4 me-3 mb-1   py-2 fs-5'>Manage Inventories</button>
                                 </Link>

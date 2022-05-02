@@ -7,7 +7,6 @@ import JoinForm from '../JoinForm/JoinForm';
 import MobileApp from '../MobileApp/MobileApp';
 import Products from '../Products/Products';
 import Showup from '../Showup/Showup';
-// import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -24,7 +23,6 @@ const Home = () => {
             <Business/>
             <MobileApp/>
             <JoinForm/>
-            {/* <Testimonial /> */}
         </div>
     );
 };

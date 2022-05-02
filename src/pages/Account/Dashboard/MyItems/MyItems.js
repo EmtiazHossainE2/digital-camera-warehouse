@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Loading from '../../../../components/Loading/Loading';
 import auth from '../../../../Firebase/firebase.init';
 import ManageItem from '../../ManageItem/ManageItem';
 
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [myItems , setMyItems] = useState([])
+
+    
     useEffect(() => {
         const handleItems = async () => {
             const email = user.email
@@ -17,6 +20,12 @@ const MyItems = () => {
         }
         handleItems()
     }, [user])
+
+    //loading
+    if(myItems <= 0){
+        return <Loading/>
+    }
+
 
     const handleDelete = (id) => {
         const deleteItem = window.confirm('Be Careful Before deleting this item ')
