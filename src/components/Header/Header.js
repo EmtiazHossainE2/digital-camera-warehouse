@@ -39,7 +39,7 @@ const Header = () => {
                             {user?.uid
                                 ?
                                 <NavDropdown className='pt-2 fs-bold  ' title="Profile" id="collasible-nav-dropdown">
-                                    <Nav.Link as={CustomLink} to='/profile' className='fw-bold mt-2 text-light'>Dashboard</Nav.Link>
+                                    <Nav.Link as={CustomLink} to='/dashboard' className='fw-bold mt-2 text-light'>Dashboard</Nav.Link>
                                     <Nav.Link as={CustomLink} to='/login' className='mt-2 fw-bold  text-light' onClick={() => signOut(auth)}>Log Out</Nav.Link>
                                 </NavDropdown>
                                 :
