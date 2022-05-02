@@ -1,7 +1,8 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import Ratings from '../../../components/Ratings/Ratings';
 import useProductDetail from '../../../hooks/useProductDetail';
 import ads from '../../../images/ads.png'
 import './ProductDetail.css'
@@ -23,7 +24,7 @@ const ProductDetail = () => {
         let quantity = quantityParse - deliver;
 
         console.log(quantity);
-        
+
         const cameraInfo = {
             name: detail.name,
             description: detail.description,
@@ -37,9 +38,9 @@ const ProductDetail = () => {
             brandId: detail.brandId,
             sold: parseInt(detail.sold) + 1,
             ratings: detail.ratings,
-            quantity: quantity 
+            quantity: quantity
         }
-        
+
         const url = `https://camera-warehouse.herokuapp.com/product/${inventoryId}`
         fetch(url, {
             method: 'PUT',
@@ -65,7 +66,7 @@ const ProductDetail = () => {
         else {
             setDetail(cameraInfo)
         }
-        
+
     }
 
     //handle stoke 
@@ -130,7 +131,9 @@ const ProductDetail = () => {
                 <div className="col-lg-6  pt-3 d-flex  justify-content-center align-items-center text-center">
                     <div className='container ps-5'>
                         <img className='w-100 ' src={detail?.img} alt="" />
-                        <h4 ><span>Ratings : {detail?.ratings}</span></h4>
+                        <div className="">
+                            {detail && <Ratings ratings={detail?.ratings} ></Ratings>}
+                        </div>
                     </div>
                 </div>
 
@@ -199,7 +202,7 @@ const ProductDetail = () => {
                         </div>
                         <h3>Description</h3>
                         <div className="pt-3 " >
-                            <p style={{textAlign: 'justify'}}>{detail?.description}</p>
+                            <p style={{ textAlign: 'justify' }}>{detail?.description}</p>
                         </div>
                     </div>
                     <div className="col-md-3"></div>

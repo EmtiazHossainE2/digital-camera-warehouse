@@ -18,11 +18,11 @@ const Integration = () => {
                 <div className="row">
                     <div className='col-lg-4 col-md-6 rounded-1'>
                         <div className=" mx-2 my-4 border border-1 ">
-                            <div className=''>
-                                <img className='p-1 w-50' src={img1} alt="" />
+                            <div className='text-center'>
+                                <img className='p-1 ' src={img1} alt="" />
                             </div>
                             <div className='p-3'>
-                                <h5 className=' text-capitalize fw-bold'>
+                                <h5 className='text-center text-capitalize fw-bold'>
                                     Multichannel sales:
                                 </h5>
                                 <p>Bid farewell to standalone tools, as Camera Inventory centralizes all orders across sources and then classifies them under appropriate filters, based on their current status, making it your complete. You can also keep track of product serial numbers </p>
@@ -31,11 +31,11 @@ const Integration = () => {
                     </div>
                     <div className='col-lg-4 col-md-6 rounded-1'>
                         <div className=" mx-2 my-4 border border-1 ">
-                            <div className=''>
-                                <img className='p-1 w-50' src={img2} alt="" />
+                            <div className='text-center'>
+                                <img className='p-1 ' src={img2} alt="" />
                             </div>
                             <div className='p-3'>
-                                <h5 className=' text-capitalize fw-bold'>
+                                <h5 className='text-center text-capitalize fw-bold'>
                                     Master of stock:
                                 </h5>
                                 <p>When you sell items over more than one channel, Camera Inventory not only keeps track of your inventory levels at all times, and prompts you to reorder low stock, it also instantly updates your current stock levels on Warehouse. </p>
@@ -44,11 +44,11 @@ const Integration = () => {
                     </div>
                     <div className='col-lg-4 col-md-6 rounded-1'>
                         <div className=" mx-2 my-4 border border-1 ">
-                            <div className=''>
-                                <img className='p-1 w-50' src={img3} alt="" />
+                            <div className='text-center'>
+                                <img className='p-1 ' src={img3} alt="" />
                             </div>
                             <div className='p-3'>
-                                <h5 className=' text-capitalize fw-bold'>
+                                <h5 className='text-center text-capitalize fw-bold'>
                                     Client database:
                                 </h5>
                                 <p>Whenever a new order from Warehouse gets captured by  Inventory, the client data is also imported and added to the built-in client database. Any future orders made by the same customer can be tracked under a dedicated sales section for each client.</p>
