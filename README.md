@@ -16,7 +16,7 @@ Looking to upgrade your photography and videography equipment? You’ve come to 
 ##  Features and Functionality
  
 
-*  The project creates a mongodb database in the cluster with staging tables that contain all the data retrieved from the client side and copied over to the tables.  Each column on the tables corresponds to the keys in the json files and for the case of the staging events table, since the column names were different from those in the file,  a json path map file that maps the data elements to the relevant columns.In the home page i'm showing some carousel images , display some inventories , testimonial , footer etc .
+*  The project creates a mongodb database in the cluster with staging tables that contain all the data retrieved from the client side and copied over to the tables.  Each column on the tables corresponds to the keys in the json files and for the case of the staging events table, since the column names were different from those in the file,  a json path map file that maps the data elements to the relevant columns.In the home page i'm showing some carousel images , display some inventories ,Warehouse Management system,mobile app section, Warehouse Integration , footer etc .
 
 
 * Their is a protect route ,if anyone want to update inventory item he/she must be a use in this website otherwise he can't manage items . so if he/she want ot manage must be register and verify his/her email .  then they can manage items .  Single detail page they can delivered one item or restoke item . in this page i'm show all information to the camera data . 
@@ -25,5 +25,10 @@ Looking to upgrade your photography and videography equipment? You’ve come to 
 
 * They can see a menu called my items .if the click this menu they can see the items which they stoke . if they want they can delete this item .it will be also deleted from manage inventory page and database . 
 
-* there is a blog page where i'm try to answer some basic interview question . 
+* there is a blog page where i'm try to answer some basic interview question . user can show his/her details on dashboard page . This website is fully responsive for any device . 
+
+
+# Website demo 
+
+![Desktop  View](https://i.ibb.co/FXtwP9b/1.png "Digital Camera Warehouse Demo")
 

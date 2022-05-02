@@ -146,7 +146,7 @@ const ProductDetail = () => {
                             <button className='btn btn-outline-dark w-25'>Brand : {detail?.brand}</button>
                         </div>
                         <div className='mt-3 pill-btn '>
-                            <button className='btn btn-outline-dark me-3'>Total Sold : {detail?.sold}</button>
+                            <button className='btn btn-success me-3'>Total Sold : {detail?.sold}</button>
                             <button className='btn btn-outline-dark '>Supplier : {detail?.supplier}</button>
                         </div>
 

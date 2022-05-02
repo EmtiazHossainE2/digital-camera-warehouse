@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import deleteIcon from '../../../images/delete.png'
 import './ManageItem.css'
 
 const ManageItem = ({ product, index, handleDelete }) => {
-    const { name,  price, quantity, img, supplier, afPoints, brand,  modes, movieType, sold, ratings,  } = product
+    const { name, _id, price, quantity, img, supplier, afPoints, brand, modes, movieType, sold, ratings, } = product
 
     // {name,description,price,quantity,img,supplier,afPoints , brand,brandId,modes,movieType,sold,ratings}
 
@@ -27,14 +28,14 @@ const ManageItem = ({ product, index, handleDelete }) => {
                         <div className="col-md-6">
                             <button className='btn '>Brand : {brand} </button> <br />
                             <button className='btn '>Price : ${price} </button> <br />
-                            <button className='btn '>Ratings : {ratings} </button> 
+                            <button className='btn '>Ratings : {ratings} </button>
                         </div>
                     </div>
                     <div>
                         <h5 className='pt-2 fw-bold'>Specification : </h5>
                         <div className='w-25 '>
-                                <hr />
-                            </div>
+                            <hr />
+                        </div>
                         <ul>
                             <li><p>{afPoints}</p></li>
                             <li><p>{modes}</p></li>
@@ -44,8 +45,11 @@ const ManageItem = ({ product, index, handleDelete }) => {
 
                 </div>
                 <div className="col-md-2 d-flex justify-content-center pb-1  align-items-center">
-                    <div onClick={() => handleDelete(product._id)} className='text-center' style={{ cursor: 'pointer' }}>
-                        <img className='bg-danger w-50 p-2 rounded-circle' src={deleteIcon} alt="" />
+                    <div>
+                        <div onClick={() => handleDelete(product._id)} className='text-center' style={{ cursor: 'pointer' }}>
+                            <img className='bg-danger w-50 p-2 rounded-circle' src={deleteIcon} alt="" />
+                        </div>
+                        <Link to={'/inventory/' + _id}><button className='btn btn-outline-success text-capitalize mt-3 fw-bold'>  Update  </button></Link>
                     </div>
                 </div>
             </div>

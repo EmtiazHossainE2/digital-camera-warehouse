@@ -45,7 +45,7 @@ const StokeItem = () => {
                     console.log(response);
                     toast.success(`Your Camera Is Stoked `, { id: "stokeItem" });
                     event.target.reset()
-                    navigate('/manage-inventories')
+                    navigate('/my-items')
                 })
                 .catch(function (error) {
                     toast.error(`Something is wrong . Try later `, { id: "stokeError" });

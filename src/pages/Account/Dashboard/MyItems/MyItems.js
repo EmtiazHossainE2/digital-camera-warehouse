@@ -21,10 +21,7 @@ const MyItems = () => {
         handleItems()
     }, [user])
 
-    //loading
-    if(myItems <= 0){
-        return <Loading/>
-    }
+
 
 
     const handleDelete = (id) => {
@@ -49,7 +46,7 @@ const MyItems = () => {
     return (
         <div className='py-5 '>
             <div className='text-center'>
-                <h1>Welcome to your stoke page</h1>
+                <h1>Welcome to Your Stock page</h1>
                 <div className='hr-style mx-auto  mb-3 '>
                 </div>
                 <h5>Your Name : {user?.displayName} </h5>
@@ -57,7 +54,7 @@ const MyItems = () => {
 
             </div>
             <div>
-                <h2 className='text-center mt-3'> You Stoke :  {myItems?.length} items</h2>
+                <h2 className='text-center mt-3'> You Stock :  {myItems?.length} items</h2>
             </div>
             <div className='hr-style mx-auto  mb-3 '>
             </div>
