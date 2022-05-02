@@ -30,5 +30,5 @@ Looking to upgrade your photography and videography equipment? You’ve come to 
 
 # Website demo 
 
-![Desktop  View](https://i.ibb.co/FXtwP9b/1.png "Digital Camera Warehouse Demo")
+![Desktop  View](https://i.ibb.co/Mgx9RTM/1.png "Digital Camera Warehouse Demo")
 
