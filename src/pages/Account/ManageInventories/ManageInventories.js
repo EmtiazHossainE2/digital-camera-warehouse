@@ -7,29 +7,29 @@ import Loading from '../../../components/Loading/Loading';
 import './ManageInventories.css'
 
 const ManageInventories = () => {
-    const [products, setProducts] = useProducts()
     //pagination 
     const [cameraCount, setCameraCount] = useState(0)
     const [page, setPage] = useState(0)
     const [pageProduct, setPageProduct] = useState(5)
-    
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/cameraCollection?page=${page}&pageProduct=${pageProduct}`)
-    //         .then(res => res.json())
-    //         .then(data => setProducts(data))
-    // }, [page,pageProduct,setProducts])
-
-
+    const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/cameraCollection')
+        fetch(`https://camera-warehouse.herokuapp.com/product?page=${page}&pageProduct=${pageProduct}`)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }, [page,pageProduct])
+    
+    useEffect(() => {
+        fetch('https://camera-warehouse.herokuapp.com/cameraCollection')
             .then(res => res.json())
             .then(data => {
                 const count = data.count
-                const pages = Math.ceil(count / 5)
+                const pages = Math.ceil(count / pageProduct)
                 setCameraCount(pages)
             })
-    }, [])
+    }, [pageProduct])
 
     if (products <= 0) {
         return <Loading />
@@ -101,7 +101,7 @@ const ManageInventories = () => {
                             >{camera + 1}</button>
                         )
                 }
-                <select  onChange={e => setPageProduct(e.target.value)}>
+                <select name="" id=""  onChange={event => setPageProduct(event.target.value)}>
                     <option value="5" selected>5</option>
                     <option value="10" >10</option>
                     <option value="15">15</option>

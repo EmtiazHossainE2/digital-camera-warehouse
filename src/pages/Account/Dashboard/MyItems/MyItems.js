@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Loading from '../../../../components/Loading/Loading';
 import auth from '../../../../Firebase/firebase.init';
 import ManageItem from '../../ManageItem/ManageItem';
 
@@ -15,7 +14,6 @@ const MyItems = () => {
             const email = user.email
             const url = `https://camera-warehouse.herokuapp.com/my-items?email=${email}`
             const { data } = await axios.get(url)
-            console.log(data);
             setMyItems(data)
         }
         handleItems()

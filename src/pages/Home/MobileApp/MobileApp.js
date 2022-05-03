@@ -15,10 +15,10 @@ const MobileApp = () => {
                 <hr />
             </div>
             <div className="row mt-3">
-                <div className="col-md-6 d-flex justify-content-end playstore">
+                <div className="col-md-6 d-flex justify-content-end playstore" style={{cursor: 'pointer'}}>
                     <img className='w-25' src={playstore} alt="" />
                 </div>
-                <div className="col-md-6  d-flex justify-content-start appstore">
+                <div className="col-md-6  d-flex justify-content-start appstore" style={{cursor: 'pointer'}}>
                     <img className='w-25' src={appstore} alt="" />
                 </div>
             </div>
