@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useProducts from '../../../hooks/useProducts';
 import ManageItem from '../ManageItem/ManageItem';
 import { FiCamera } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
+import './ManageInventories.css'
 
 const ManageInventories = () => {
     const [products, setProducts] = useProducts()
+    //pagination 
+    const [cameraCount, setCameraCount] = useState(0)
+    const [page, setPage] = useState(0)
+    const [pageProduct, setPageProduct] = useState(5)
+    
 
-    if(products <= 0){
-        return <Loading/>
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/cameraCollection?page=${page}&pageProduct=${pageProduct}`)
+    //         .then(res => res.json())
+    //         .then(data => setProducts(data))
+    // }, [page,pageProduct,setProducts])
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/cameraCollection')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count
+                const pages = Math.ceil(count / 5)
+                setCameraCount(pages)
+            })
+    }, [])
+
+    if (products <= 0) {
+        return <Loading />
     }
 
 
@@ -52,7 +75,7 @@ const ManageInventories = () => {
                         <h5>Product Info</h5>
                     </div>
                     <div className="col-md-2 d-flex justify-content-center pb-1  align-items-center">
-                        <h5>Delete</h5>
+                        <h5>Manage</h5>
                     </div>
                 </div>
             </div>
@@ -65,6 +88,25 @@ const ManageInventories = () => {
                         handleDelete={handleDelete}
                     ></ManageItem>)
                 }
+            </div>
+
+            {/* pagination  */}
+
+            <div className='container pagination-container'>
+                {
+                    [...Array(cameraCount).keys()]
+                        .map(camera =>
+                            <button className={page === camera ? 'selected' : ''}
+                                onClick={() => setPage(camera)}
+                            >{camera + 1}</button>
+                        )
+                }
+                <select  onChange={e => setPageProduct(e.target.value)}>
+                    <option value="5" selected>5</option>
+                    <option value="10" >10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
             </div>
         </div>
     );

@@ -18,9 +18,7 @@ const ProductDetail = () => {
     const handleDelivered = () => {
         let deliver = 1;
         let quantityParse = parseInt(detail.quantity);
-        let quantity = quantityParse - deliver;
-
-        console.log(quantity);
+        let quantity = quantityParse - deliver; 
 
         const cameraInfo = {
             name: detail.name,
@@ -70,9 +68,12 @@ const ProductDetail = () => {
     const handleStoke = event => {
         event.preventDefault()
         const reStoke = stokeRef.current.value;
-        // console.log(reStoke);
         if (reStoke === '') {
             toast.error(`Please Stoke Items `, { id: "addItem" });
+            return;
+        }
+        if(reStoke <= 0 ){
+            toast.error(`Please Stoke Positive Item `, { id: "addItem2" });
             return;
         }
         else {
