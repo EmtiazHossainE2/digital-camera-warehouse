@@ -5,6 +5,7 @@ import { FiCamera } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 import './ManageInventories.css'
+import PageTitle from '../../../components/PageTitle/PageTitle';
 
 const ManageInventories = () => {
     //pagination 
@@ -55,6 +56,7 @@ const ManageInventories = () => {
 
     return (
         <div className='py-5 '>
+            <PageTitle title="Manage - "></PageTitle>
             <div className='container'>
                 <Link to='/stock-item'>
                     <button className='btn btn-success fs-5 mb-3' >Stock New Camera <span className='ps-3 fs-4'><FiCamera /></span></button>

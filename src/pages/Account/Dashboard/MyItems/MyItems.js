@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import PageTitle from '../../../../components/PageTitle/PageTitle';
 import auth from '../../../../Firebase/firebase.init';
 import ManageItem from '../../ManageItem/ManageItem';
 
@@ -43,6 +44,7 @@ const MyItems = () => {
 
     return (
         <div className='py-5 '>
+            <PageTitle title="MyItems "></PageTitle>
             <div className='text-center'>
                 <h1>Welcome to Your Stock page</h1>
                 <div className='hr-style mx-auto  mb-3 '>

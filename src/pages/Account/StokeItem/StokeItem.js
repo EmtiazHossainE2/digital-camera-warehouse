@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { ImBoxAdd } from 'react-icons/im';
 import { useNavigate } from 'react-router-dom';
+import PageTitle from '../../../components/PageTitle/PageTitle';
 import auth from '../../../Firebase/firebase.init';
 import './StokeItem.css'
 
@@ -57,6 +58,7 @@ const StokeItem = () => {
 
     return (
         <div className=' py-5  stoke-container'>
+            <PageTitle title="Stock -"></PageTitle>
             <h2 className='text-center pt-3 '> Stoke Item From Here</h2>
             <div className='hr-style mx-auto pt-1 '>
                 <hr />

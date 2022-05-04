@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
+import PageTitle from '../../../components/PageTitle/PageTitle';
 import auth from '../../../Firebase/firebase.init';
 import SocialAccount from '../SocialAccount/SocialAccount';
 import './Signup.css'
@@ -90,6 +91,7 @@ const Signup = () => {
 
     return (
         <div className='login-container'>
+            <PageTitle title="Register -"></PageTitle>
             <div className="account-container container py-5 ">
                 <div className=" text-light custom-style ">
                     <h3 className='text-center py-3 fst-italic'>Register now</h3>

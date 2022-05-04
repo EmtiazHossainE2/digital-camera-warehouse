@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import PageTitle from '../../../components/PageTitle/PageTitle';
 import auth from '../../../Firebase/firebase.init';
 import profileImg from '../../../images/user.png'
 
@@ -8,6 +9,7 @@ const Dashboard = () => {
     console.log(user);
     return (
         <div className='py-5'>
+            <PageTitle title="Profile -"></PageTitle>
             <h2 className='text-center'>Welcome {user?.displayName}</h2>
             <div className='container'>
                 <div className="row ">

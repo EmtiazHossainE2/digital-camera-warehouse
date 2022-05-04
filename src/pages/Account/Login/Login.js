@@ -4,6 +4,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
+import PageTitle from '../../../components/PageTitle/PageTitle';
 import auth from '../../../Firebase/firebase.init';
 import SocialAccount from '../SocialAccount/SocialAccount';
 import './Login.css'
@@ -99,6 +100,7 @@ const Login = () => {
     
     return (
         <div className='login-container'>
+            <PageTitle title="Login -"></PageTitle>
             <div className=" account-container container py-5 ">
                 <div className=" custom-style ">
                     <h3 className='text-center mb-3 py-4 fst-italic'>Welcome Back</h3>

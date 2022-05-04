@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PageTitle from '../../../components/PageTitle/PageTitle';
 import Banner from '../Banner/Banner';
 import Business from '../Business/Business';
 import Integration from '../Integration/Integration';
@@ -11,6 +12,7 @@ import Showup from '../Showup/Showup';
 const Home = () => {
     return (
         <div >
+            <PageTitle title=""></PageTitle>
             <Banner />
             <Integration/>
             <Showup/>
