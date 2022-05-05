@@ -41,11 +41,6 @@ const Login = () => {
         if (passwordValue.length < 6) {
             setPassword({ value: "", error: "Password not match" });
         }
-        else if (!/(?=.*[A-Z])/.test(passwordValue)) {
-            setPassword({
-                value: "", error: "Password not match",
-            });
-        }
         else {
             setPassword({ value: passwordValue, error: "" });
         }
