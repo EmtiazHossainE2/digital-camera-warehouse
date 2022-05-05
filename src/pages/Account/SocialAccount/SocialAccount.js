@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 import auth from '../../../Firebase/firebase.init';
 import google from '../../../images/Google.png'
+import toast from 'react-hot-toast';
 import './SocialAccount.css'
 
 const SocialAccount = () => {
@@ -18,8 +18,8 @@ const SocialAccount = () => {
 
     //google success
     if (googleUser) {
-        toast.success(`Welcome to Camera House `, { id: "welcome" });
         navigate(from)
+        toast.success(`Welcome to Camera House `, { id: "welcome" });
     }
 
     // loading 
@@ -30,9 +30,10 @@ const SocialAccount = () => {
     //error handle 
     let errorMessage;
     if (googleError) {
-        toast.error(`Something is wrong`, { id: "error" });
         errorMessage = <p className='text-danger'>Something is wrong.Try again please
         </p>
+        
+        toast.error(`Something is wrong`, { id: "error" });
     }
 
 

@@ -21,7 +21,7 @@ Looking to upgrade your photography and videography equipment? You’ve come to 
 
 * Their is a protect route ,if anyone want to update inventory item he/she must be a use in this website otherwise he can't manage items . so if he/she want ot manage must be register and verify his/her email .  then they can manage items .  Single detail page they can delivered one item or restoke item . in this page i'm show all information to the camera data . 
 
-* Home page or single detail  page have a button that is called manage inventories .if they click this button they will redirect to the manage intventories page where all items display in row based . they can see everything and if they want they can delete the item . also manage inventory page here is a button name stock new camera .if they click this button they will go to the stock item page and they can stoke item . 
+* Home page or single detail  page have a button that is called manage inventories .if they click this button they will redirect to the manage intventories page where all items display in row based . they can see everything and if they want they can delete the item . also manage inventory page here is a button name stock new camera .if they click this button they will go to the stock item page and they can stoke item . I'm also using pagination .
 
 * They can see a menu called my items .if the click this menu they can see the items which they stoke . if they want they can delete this item .it will be also deleted from manage inventory page and database . 
 

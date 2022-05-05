@@ -17,7 +17,6 @@ const StokeItem = () => {
     //handleStoke 
     const handleStoke = event => {
         event.preventDefault()
-        console.log('clicked');
         const cameraInfo = {
             displayName: user.displayName,
             email: user.email,

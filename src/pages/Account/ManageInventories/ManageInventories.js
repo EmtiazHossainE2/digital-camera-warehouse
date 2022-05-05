@@ -98,7 +98,7 @@ const ManageInventories = () => {
                 {
                     [...Array(cameraCount).keys()]
                         .map(camera =>
-                            <button className={page === camera ? 'selected' : ''}
+                            <button  className={page === camera ? 'selected' : ''}
                                 onClick={() => setPage(camera)}
                             >{camera + 1}</button>
                         )
