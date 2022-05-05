@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import PageTitle from '../../../../components/PageTitle/PageTitle';
 import auth from '../../../../Firebase/firebase.init';
 import ManageItem from '../../ManageItem/ManageItem';
@@ -8,14 +10,29 @@ import ManageItem from '../../ManageItem/ManageItem';
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const [myItems , setMyItems] = useState([])
+    const navigate = useNavigate()
 
     
     useEffect(() => {
         const handleItems = async () => {
             const email = user.email
-            const url = `https://camera-warehouse.herokuapp.com/my-items?email=${email}`
-            const { data } = await axios.get(url)
-            setMyItems(data)
+            // const url = `https://camera-warehouse.herokuapp.com/my-items?email=${email}`
+            const url = `http://localhost:5000/my-items?email=${email}`
+            try{
+                const { data } = await axios.get(url, {
+                    headers : {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
+                setMyItems(data)
+            }
+            catch(error){
+                console.log(error.message);
+                if(error.response.status === 401 || error.response.status === 403){
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
         }
         handleItems()
     }, [user])
@@ -44,7 +61,7 @@ const MyItems = () => {
 
     return (
         <div className='py-5 '>
-            <PageTitle title="MyItems "></PageTitle>
+            <PageTitle title="MyItems -"></PageTitle>
             <div className='text-center'>
                 <h1>Welcome to Your Stock page</h1>
                 <div className='hr-style mx-auto  mb-3 '>

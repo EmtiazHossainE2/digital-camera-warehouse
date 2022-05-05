@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -20,11 +21,11 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    
+
     const [signInWithEmailAndPassword, user, loading, loginError] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
-    
+
     //handle email
     const handleEmail = event => {
         const emailValue = event.target.value
@@ -48,22 +49,21 @@ const Login = () => {
 
     // navigate 
     if (user) {
-        toast.success(`Welcome Back To Warehouse `, { id: "welcome" });
-        navigate(from, { replace: true });
+
     }
 
     //loading
-    if(sending){
-        return <Loading/>
+    if (sending) {
+        return <Loading />
     }
 
     //error 
-    if (loginError ) {
+    if (loginError) {
         toast.error(`Sorry ! No User  found`, { id: "userError" });
     }
 
     //handle submit btn 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault()
 
         if (email.value === "") {
@@ -75,7 +75,12 @@ const Login = () => {
         }
 
         if (email.value && password.value) {
-            signInWithEmailAndPassword(email.value, password.value)
+            await signInWithEmailAndPassword(email.value, password.value);
+            const { data } = await axios.post('http://localhost:5000/login', { email });
+            console.log(data);
+            localStorage.setItem('accessToken', data.accessToken);
+            navigate(from, { replace: true });
+            toast.success(`Welcome Back To Warehouse `, { id: "welcome" });
         }
     }
 
@@ -92,7 +97,7 @@ const Login = () => {
         }
     }
 
-    
+
     return (
         <div className='login-container'>
             <PageTitle title="Login -"></PageTitle>
@@ -104,16 +109,16 @@ const Login = () => {
 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3 " controlId="formBasicEmail">
-                            <Form.Control type="email" ref={emailRef} onBlur={handleEmail}  className='py-2 fs-5 fst-italic' placeholder="Enter email"  />
+                            <Form.Control type="email" ref={emailRef} onBlur={handleEmail} className='py-2 fs-5 fst-italic' placeholder="Enter email" />
                         </Form.Group>
                         {email?.error && <p className="text-danger"> {email.error}</p>}
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control onChange={handlePassword}  className='py-2 fs-5 fst-italic' type="password" placeholder="Password"  />
+                            <Form.Control onChange={handlePassword} className='py-2 fs-5 fst-italic' type="password" placeholder="Password" />
                         </Form.Group>
                         {/* error handle  */}
                         {password?.error && <p className="text-danger"> {password.error}</p>}
-                        
+
                         {loginError && <p className="text-danger"> Password is Wrong</p>}
                         <Button variant="primary" type="submit" className='w-100 fs-5'>
                             Login
