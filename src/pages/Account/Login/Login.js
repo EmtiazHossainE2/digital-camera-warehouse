@@ -76,7 +76,7 @@ const Login = () => {
 
         if (email.value && password.value) {
             await signInWithEmailAndPassword(email.value, password.value);
-            const { data } = await axios.post('http://localhost:5000/login', { email });
+            const { data } = await axios.post('https://camera-warehouse.herokuapp.com/login', { email });
             console.log(data);
             localStorage.setItem('accessToken', data.accessToken);
             navigate(from, { replace: true });

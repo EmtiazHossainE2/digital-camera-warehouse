@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import axiosPrivate from '../../../../api/axiosPrivate';
 import PageTitle from '../../../../components/PageTitle/PageTitle';
 import auth from '../../../../Firebase/firebase.init';
 import ManageItem from '../../ManageItem/ManageItem';
@@ -16,14 +16,9 @@ const MyItems = () => {
     useEffect(() => {
         const handleItems = async () => {
             const email = user.email
-            // const url = `https://camera-warehouse.herokuapp.com/my-items?email=${email}`
-            const url = `http://localhost:5000/my-items?email=${email}`
+            const url = `https://camera-warehouse.herokuapp.com/my-items?email=${email}`
             try{
-                const { data } = await axios.get(url, {
-                    headers : {
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    }
-                })
+                const { data } = await axiosPrivate.get(url)
                 setMyItems(data)
             }
             catch(error){
