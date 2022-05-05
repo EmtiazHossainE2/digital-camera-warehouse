@@ -30,7 +30,7 @@ const MyItems = () => {
             }
         }
         handleItems()
-    }, [user])
+    }, [user,navigate])
 
 
 
