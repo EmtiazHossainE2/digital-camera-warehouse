@@ -1,6 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import axiosPrivate from '../../../../api/axiosPrivate';
 import PageTitle from '../../../../components/PageTitle/PageTitle';
@@ -24,6 +25,7 @@ const MyItems = () => {
             catch(error){
                 console.log(error.message);
                 if(error.response.status === 401 || error.response.status === 403){
+                    toast.error(`Forbidden Access .Please Login`, { id: "error" });
                     signOut(auth);
                     navigate('/login')
                 }
