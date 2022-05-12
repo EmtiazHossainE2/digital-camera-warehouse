@@ -13,3 +13,6 @@
     font-size: 18px;
     color: rgb(241, 232, 232) ;
 }
+.dropdown a {
+    color: #fff !important;
+}
